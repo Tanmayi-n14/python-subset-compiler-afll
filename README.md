@@ -121,3 +121,10 @@ expression      := expression BINOP expression
                  | expression 'if' expression 'else' expression
                  | term
 ```
+
+---
+
+## 👤 Author
+
+* **Tanmayi Nagabhairava** ([@Tanmayi-n14](https://github.com/Tanmayi-n14)) — `PES1UG24CS493`
+* Department of Computer Science & Engineering, PES University
