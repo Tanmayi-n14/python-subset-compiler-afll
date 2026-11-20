@@ -4,10 +4,17 @@ tokens = (
     'ID', 'NUMBER', 'STRING',
     'EQUALS', 'LPAREN', 'RPAREN', 'LBRACKET', 'RBRACKET',
     'LBRACE', 'RBRACE', 'COLON', 'COMMA',
-    'PLUS', 'MINUS', 'STAR', 'DIVIDE',
+    'PLUS', 'MINUS', 'STAR', 'DIVIDE', 'MOD', 'POWER',
     'GT', 'LT', 'GE', 'LE', 'EQ', 'NE',
     'WITH', 'AS', 'LAMBDA', 'FROM', 'IMPORT', 'FOR', 'IN', 'IF', 'ELSE'
 )
+
+# Multi-character operators
+t_POWER    = r'\*\*'
+t_GE       = r'>='
+t_LE       = r'<='
+t_EQ       = r'=='
+t_NE       = r'!='
 
 # Single-character tokens
 t_EQUALS   = r'='
@@ -23,19 +30,14 @@ t_PLUS     = r'\+'
 t_MINUS    = r'-'
 t_STAR     = r'\*'
 t_DIVIDE   = r'/'
-
-# Comparison operators (multi-char first)
-t_GE       = r'>='
-t_LE       = r'<='
-t_EQ       = r'=='
-t_NE       = r'!='
+t_MOD      = r'%'
 t_GT       = r'>'
 t_LT       = r'<'
 
 t_ignore   = ' \t'
 
 def t_STRING(t):
-    r'\"[^\"]*\"'
+    r'(\"[^\"]*\"|\'[^\']*\')'
     t.value = t.value[1:-1]
     return t
 
